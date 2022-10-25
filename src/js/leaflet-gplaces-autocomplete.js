@@ -30,7 +30,7 @@
 
             // build structure
             this.container = L.DomUtil.create("div", "leaflet-gac-container leaflet-bar");
-            var searchWrapper = L.DomUtil.create("div", "leaflet-gac-wrapper");
+            let searchWrapper = L.DomUtil.create("div", "leaflet-gac-wrapper");
             this.searchBox = L.DomUtil.create("input", "leaflet-gac-control");
             this.autocomplete = new google.maps.places.Autocomplete(this.searchBox, this.options.autocomplete_options);
 
@@ -124,7 +124,7 @@
         addTo: function (map) {
             this._map = map;
 
-            var container = this._container = this.onAdd(map),
+            let container = this._container = this.onAdd(map),
                 pos = this.options.position,
                 corner = map._controlCorners[pos];
 
@@ -135,8 +135,8 @@
                 corner.appendChild(container)
             }
 
-            var callback = this.options.callback;
-            var _this = this;
+            let callback = this.options.callback;
+            let _this = this;
             google.maps.event.addListener(this.autocomplete, "place_changed", function () {
                 callback(_this.autocomplete.getPlace(), map);
             });
